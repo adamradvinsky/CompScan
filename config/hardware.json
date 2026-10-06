@@ -1,0 +1,22 @@
+{
+  "system": {
+    "operating_system": "Linux",
+    "os_release": "6.6.0",
+    "kernel": "...",
+    "hostname": "..."
+  },
+  "cpu": {
+    "architecture": "x86_64",
+    "model": "Your actual CPU model",
+    "cores": 12,
+    "physical_cores": 6
+  },
+  "benchmarks": {
+    "cpu": {
+        "duration_seconds": 12.43,
+        "iterations": 100000000,
+        "operations_per_second": 48230000.0,
+        "checksum": 1.234
+        } 
+    }
+}

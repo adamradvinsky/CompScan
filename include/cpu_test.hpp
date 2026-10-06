@@ -1,0 +1,12 @@
+#pragma once
+
+#include <cstdint>
+
+struct CpuTestResult {
+    double duration_seconds;
+    uint64_t iterations;
+    double operations_per_second;
+    double checksum;
+};
+
+CpuTestResult run_cpu_test(uint64_t iterations);
