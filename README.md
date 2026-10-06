@@ -16,6 +16,172 @@ Most people can't tell the difference between "works" and "works well." I wanted
 - Looks up the manufacturer's advertised specs and compares them to what the machine actually measured
 - Flags any component that's running below spec
 
+### Sample output
+
+This is the report format CompScan is built to produce. The spec lines come from published specs; the measured values are placeholders from a design mockup, not real scan results.
+
+<details>
+<summary>Click to view a sample report (GTX 1660 SUPER and Xeon E5-1650 v4)</summary>
+
+```text
++==============================================================================+
+|                                                                              |
+|               C O M P S C A N   -   Hardware Diagnostic Report               |
+|       v0.1.0  |  Stress profile: SUSTAINED (10 min)  |  SAMPLE OUTPUT        |
+|                                                                              |
++==============================================================================+
+|  DEVICE     NVIDIA GeForce GTX 1660 SUPER  (TU116, 6 GB GDDR6, 192-bit)      |
+|  DRIVER     535.154.05      PCIe Gen3 x16      Board power limit: 125 W      |
+|  SPECS      1408 CUDA cores | boost 1785 MHz | 336 GB/s | 125 W TGP          |
+|  BASELINE   Healthy-card reference profile for this SKU                      |
++==============================================================================+
+|                         GPU  -  EXPECTED vs MEASURED                         |
++==============================================================================+
+|                                                                              |
+|  GPU TEMPERATURE                                                   [ WARN ]  |
+|    expected  ###################-------  72 C                                |
+|    measured  ######################----  84 C       +12 C  (+16.7%)          |
+|                                                                              |
+|  VRAM TEMPERATURE                                                  [ N/A  ]  |
+|    sensor not exposed by this GPU/driver (common on GeForce cards)           |
+|                                                                              |
+|  POWER DRAW                                                        [ WARN ]  |
+|    expected  #########################-  120 W                               |
+|    measured  ####################------  96 W       -24 W  (-20.0%)          |
+|                                                                              |
+|  GPU UTILIZATION                                                   [  OK  ]  |
+|    expected  ##########################  99 %                                |
+|    measured  #########################-  97 %       -2 %  (-2.0%)            |
+|                                                                              |
+|  MEMORY CONTROLLER UTILIZATION                                     [  OK  ]  |
+|    expected  ################----------  62 %                                |
+|    measured  ################----------  61 %       -1 %  (-1.6%)            |
+|                                                                              |
+|  VRAM USAGE                                                        [  OK  ]  |
+|    expected  #######################---  5.2 GB                              |
+|    measured  ######################----  5.1 GB     -0.1 GB  (-1.9%)         |
+|                                                                              |
+|  FAN SPEED                                                         [ WARN ]  |
+|    expected  ##############------------  55 %                                |
+|    measured  #######################---  88 %       +33 %  (+60.0%)          |
+|                                                                              |
+|  CORE CLOCK                                                        [ WARN ]  |
+|    expected  #######################---  1785 MHz                            |
+|    measured  #####################-----  1590 MHz   -195 MHz  (-10.9%)       |
+|                                                                              |
+|  PERFORMANCE STATE                                                 [ WARN ]  |
+|    expected  P0  (full performance, held for the whole run)                  |
+|    measured  P0 -> P2 at 4m12s                                               |
+|              throttle reason: SW thermal slowdown                            |
+|                                                                              |
++==============================================================================+
+|                          GPU TEMPERATURE OVER TIME                           |
++==============================================================================+
+|                                                                              |
+|  Temperature (C) during sustained load                                       |
+|                                                                              |
+|     90 |                                                                     |
+|     85 |                       * * * * * * * * * *                           |
+|     80 |               * * * *                                               |
+|     75 |           * *                                                       |
+|     70 |       * * . . . . . . . . . . . . . . . .                           |
+|     65 |     * .                                                             |
+|     60 |     .                                                               |
+|     55 |   *                                                                 |
+|     50 |   .                                                                 |
+|     45 |                                                                     |
+|     40 | *                                                                   |
+|        +-------------------------------------------                          |
+|          0   1   2   3   4   5   6   7   8   9   10  min                     |
+|          * measured    . expected for a healthy card                         |
+|                                                                              |
++==============================================================================+
+|  VERDICT   CAUTION   (4 warnings, 0 failures)                                |
+|  SUMMARY   Runs hot and clocks down under sustained load. Fan is working     |
+|            hard to compensate. Likely dried paste or a clogged heatsink.     |
+|            Repaste/clean before buying, or negotiate the price down.         |
++==============================================================================+
+
+
++==============================================================================+
+|                                                                              |
+|               C O M P S C A N   -   Hardware Diagnostic Report               |
+|       v0.1.0  |  Stress profile: SUSTAINED (10 min)  |  SAMPLE OUTPUT        |
+|                                                                              |
++==============================================================================+
+|  DEVICE     Intel Xeon E5-1650 v4  (Broadwell-EP, 6C/12T, 15 MB L3)          |
+|  PART NO.   BX80660E51650V4      Base 3.6 GHz / Turbo 4.0 GHz    TDP 140 W   |
+|  MEMORY     4 x DDR4-2400 channels (76.8 GB/s theoretical)                   |
+|  SPECS      Max case temp 69 C | all-core turbo 3.8 GHz | 140 W TDP          |
+|  BASELINE   Healthy-chip reference profile for this SKU                      |
++==============================================================================+
+|                         CPU  -  EXPECTED vs MEASURED                         |
++==============================================================================+
+|                                                                              |
+|  PACKAGE TEMPERATURE                                               [ WARN ]  |
+|    expected  ##################--------  68 C                                |
+|    measured  #####################-----  81 C       +13 C  (+19.1%)          |
+|                                                                              |
+|  ALL-CORE CLOCK                                                    [ WARN ]  |
+|    expected  #########################-  3.8 GHz                             |
+|    measured  ######################----  3.4 GHz    -0.4 GHz  (-10.5%)       |
+|                                                                              |
+|  PACKAGE POWER DRAW                                                [ WARN ]  |
+|    expected  #########################-  135 W                               |
+|    measured  #####################-----  112 W      -23 W  (-17.0%)          |
+|                                                                              |
+|  CPU UTILIZATION                                                   [  OK  ]  |
+|    expected  ##########################  100 %                               |
+|    measured  ##########################  100 %      +0 %  (+0.0%)            |
+|                                                                              |
+|  MEMORY BANDWIDTH                                                  [ FAIL ]  |
+|    expected  ####################------  58 GB/s                             |
+|    measured  ##############------------  41 GB/s    -17 GB/s  (-29.3%)       |
+|                                                                              |
+|  TURBO RESIDENCY                                                   [ WARN ]  |
+|    expected  #########################-  95 %                                |
+|    measured  ##################--------  71 %       -24 %  (-25.3%)          |
+|                                                                              |
+|  THERMAL THROTTLE EVENTS                                           [ WARN ]  |
+|    expected  0                                                               |
+|    measured  14 events (first at 3m40s)                                      |
+|                                                                              |
+|  PER-CORE TEMPERATURE (end of run)                                 [ WARN ]  |
+|    core 0    ####################------  78 C                                |
+|    core 1    #####################-----  79 C                                |
+|    core 2    ####################------  77 C                                |
+|    core 3    #######################---  88 C                                |
+|    core 4    #####################-----  79 C                                |
+|    core 5    ####################------  78 C                                |
+|                                                                              |
++==============================================================================+
+|                        PACKAGE TEMPERATURE OVER TIME                         |
++==============================================================================+
+|                                                                              |
+|  Temperature (C) during sustained load                                       |
+|                                                                              |
+|     85 |                                                                     |
+|     80 |                 * * * * * * * * * * * * *                           |
+|     75 |           * * *                                                     |
+|     70 |         *   . . . . . . . . . . . . . . .                           |
+|     65 |       * . .                                                         |
+|     60 |     *                                                               |
+|     55 |                                                                     |
+|     50 |   *                                                                 |
+|     45 |                                                                     |
+|     40 | *                                                                   |
+|     35 |                                                                     |
+|        +-------------------------------------------                          |
+|          0   1   2   3   4   5   6   7   8   9   10  min                     |
+|          * measured    . expected for a healthy chip                         |
+|                                                                              |
++==============================================================================+
+|  VERDICT   FAIL   (1 failure, 5 warnings)                                    |
++==============================================================================+
+```
+
+</details>
+
 ## How I built it
 
 - **Linux environment:** I built a minimal Linux image that boots from USB and launches the tests automatically. I kept it small so it boots fast and works on a wide range of machines.
