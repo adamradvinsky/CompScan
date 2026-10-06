@@ -20,10 +20,7 @@ Most people can't tell the difference between "works" and "works well." I wanted
 
 This is the report format CompScan is built to produce. The spec lines come from published specs; the measured values are placeholders from a design mockup, not real scan results.
 
-<details>
-<summary>Click to view a sample report (GTX 1660 SUPER and Xeon E5-1650 v4)</summary>
 
-```text
 +==============================================================================+
 |                                                                              |
 |               C O M P S C A N   -   Hardware Diagnostic Report               |
@@ -178,9 +175,7 @@ This is the report format CompScan is built to produce. The spec lines come from
 +==============================================================================+
 |  VERDICT   FAIL   (1 failure, 5 warnings)                                    |
 +==============================================================================+
-```
 
-</details>
 
 ## How I built it
 
