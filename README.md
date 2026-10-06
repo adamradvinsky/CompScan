@@ -94,9 +94,6 @@ This is the report format CompScan is built to produce. The spec lines come from
 |                                                                              |
 +==============================================================================+
 |  VERDICT   CAUTION   (4 warnings, 0 failures)                                |
-|  SUMMARY   Runs hot and clocks down under sustained load. Fan is working     |
-|            hard to compensate. Likely dried paste or a clogged heatsink.     |
-|            Repaste/clean before buying, or negotiate the price down.         |
 +==============================================================================+
 
 
