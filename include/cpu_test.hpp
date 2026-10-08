@@ -5,6 +5,7 @@
 
 
 // viva la mantequilla 
+// adlsandlsamdl
 struct CpuTestResult {
     double duration_seconds;
     uint64_t iterations;
