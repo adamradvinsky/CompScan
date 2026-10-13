@@ -11,6 +11,7 @@
 //asdioasdjoasjd
 // gulp
 //asdsdasd
+// stat 271 midterm todya
 struct CpuTestResult {
     double duration_seconds;
     uint64_t iterations;
