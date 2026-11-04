@@ -4,6 +4,8 @@
 #include <cstdint>
 
 
+// asdjoiasjdwiajr
+// asida
 // result test structure 
 struct CpuTestResult {
     double duration_seconds;
