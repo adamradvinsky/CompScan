@@ -4,6 +4,7 @@
 #include <cstdint>
 
 
+// result test structure 
 struct CpuTestResult {
     double duration_seconds;
     uint64_t iterations;
