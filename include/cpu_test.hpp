@@ -4,10 +4,7 @@
 #include <cstdint>
 
 
-// asdjoiasjdwiajr
-// asida
-// result test structure 
-// sadssrdsfrdesress
+// went to microsoft office today
 struct CpuTestResult {
     double duration_seconds;
     uint64_t iterations;
