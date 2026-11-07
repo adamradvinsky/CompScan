@@ -4,7 +4,6 @@
 #include <cstdint>
 
 
-// went to microsoft office today
 struct CpuTestResult {
     double duration_seconds;
     uint64_t iterations;
