@@ -15,3 +15,4 @@ void qualification_test();
 
 
 CpuTestResult run_cpu_test(uint64_t iterations);
+
